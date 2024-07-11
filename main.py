@@ -84,13 +84,11 @@ while not end_of_game:
     if guess not in display:
         print(stages[lives])
         lives -= 1
-
+        if lives == 0:
+            end_of_game = True
+            print("You lose!")
     print(display)
 
     if "_" not in display:
         end_of_game = True
         print("You win!")
-
-    if lives < 0:
-        end_of_game = True
-        print("You lose!")
