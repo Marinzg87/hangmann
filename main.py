@@ -9,19 +9,21 @@ print(f'Pssst, the solution is {chosen_word}.')
 
 display = []
 for _ in range(word_length):
-    display += "-"
+    display += "_"
 print(display)
 
-counter = word_length
-print(f"Counter on the beginning: {counter}")
-while counter > 0:
+end_of_game = False
+
+while not end_of_game:
     guess = input("Guess a letter: ").lower()
 
     for position in range(word_length):
         letter = chosen_word[position]
         if letter == guess:
             display[position] = guess
-            counter -= 1
 
     print(display)
-print("You win!")
+
+    if "_" not in display:
+        end_of_game = True
+        print("You win!")
