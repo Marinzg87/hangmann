@@ -1,63 +1,5 @@
 import random
-
-stages = [
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-""", """
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-""", """
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-""", """
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========
-""", """
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-""", """
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-""", """
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-"""]
+from ascii_art import stages
 
 word_list = ["aardvark", "baboon", "camel"]
 
@@ -82,7 +24,6 @@ while not end_of_game:
         if letter == guess:
             display[position] = guess
     if guess not in display:
-        print(stages[lives])
         lives -= 1
         if lives == 0:
             end_of_game = True
@@ -92,3 +33,5 @@ while not end_of_game:
     if "_" not in display:
         end_of_game = True
         print("You win!")
+
+    print(stages[lives])
