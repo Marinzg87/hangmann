@@ -12,18 +12,16 @@ for _ in range(word_length):
     display += "-"
 print(display)
 
-game = True
-while game:
+counter = word_length
+print(f"Counter on the beginning: {counter}")
+while counter > 0:
     guess = input("Guess a letter: ").lower()
 
     for position in range(word_length):
         letter = chosen_word[position]
         if letter == guess:
             display[position] = guess
+            counter -= 1
 
     print(display)
-    if "_" in display:
-        continue
-    else:
-        print("You win!")
-        game = False
+print("You win!")
